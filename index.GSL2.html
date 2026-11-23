@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>مولد بوستر تمام الوردية - Global Security Logistics (GSL)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0e1d34;
+    --navy-light: #162b4d;
+    --gold: #c8a961;
+    --gold-light: #e2c785;
+    --white: #ffffff;
+    --bg: #f1f5f9;
+    --border: #cbd5e1;
+    --danger: #dc2626;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: #1e293b;
+  }
+
+  .app-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 16px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .app-header .company-top {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+    direction: ltr;
+  }
+
+  .app-header h1 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--gold-light);
+  }
+
+  .container {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 14px;
+    padding-bottom: 40px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    border: 1px solid #e2e8f0;
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 4px;
+  }
+
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+    background: #f8fafc;
+    transition: border-color 0.2s;
+  }
+
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--navy);
+    background: var(--white);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 68px;
+    line-height: 1.5;
+  }
+
+  .row-inline {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: transform 0.1s, opacity 0.2s;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-navy {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 800;
+  }
+
+  .btn-outline {
+    background: #f1f5f9;
+    color: var(--navy);
+    border: 1px solid var(--border);
+  }
+
+  .btn-danger {
+    background: #fee2e2;
+    color: var(--danger);
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .btn-icon {
+    background: #e2e8f0;
+    color: #334155;
+    padding: 6px 9px;
+    font-size: 12px;
+  }
+
+  .btn-full {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(14, 29, 52, 0.2);
+  }
+
+  .person-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .person-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .person-badge {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+  }
+
+  .person-actions {
+    display: flex;
+    gap: 4px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .preview-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #e2e8f0;
+    padding: 12px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  canvas {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    display: block;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #0f172a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    white-space: nowrap;
+  }
+
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="company-top">Global Security Logistics (GSL)</div>
+  <h1>🛡️ مولّد بوستر تمام الوردية</h1>
+</div>
+
+<div class="container">
+
+  <!-- بيانات الوردية -->
+  <div class="card">
+    <div class="card-title">
+      <span>📅 بيانات الوردية الأساسية</span>
+      <button type="button" class="btn btn-outline" onclick="resetDefaultData()" style="padding:4px 10px;font-size:12px;">استعادة الافتراضي</button>
+    </div>
+
+    <div class="form-group">
+      <label>اسم الشركة (في أعلى البوستر)</label>
+      <input type="text" id="companyName" dir="ltr" style="text-align:center;font-weight:800;" value="Global Security Logistics (GSL)" oninput="updateAndRender()">
+    </div>
+
+    <div class="form-group">
+      <label>عنوان الوردية</label>
+      <input type="text" id="shiftTitle" value="تمام الوردية المسائية" oninput="updateAndRender()">
+    </div>
+
+    <div class="form-group">
+      <label>التاريخ</label>
+      <div class="row-inline">
+        <input type="text" id="shiftDate" value="اليوم: الأحد الموافق ٢٠٢٦/١١/٢٢م" oninput="updateAndRender()">
+        <button type="button" class="btn btn-navy" onclick="setTodayDate()" style="white-space:nowrap;">تاريخ اليوم</button>
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:0;">
+      <label>ملاحظة ختام التقرير</label>
+      <textarea id="shiftFooter" oninput="updateAndRender()">تم استلام الوردية وتوزيع الأفراد على مواقعهم، والأمور تسير بشكل طبيعي ولا توجد أي ملاحظات.</textarea>
+    </div>
+  </div>
+
+  <!-- قائمة الأفراد -->
+  <div class="card">
+    <div class="card-title">
+      <span>👮‍♂️ طاقم الأفراد (<span id="countBadge">5</span>)</span>
+      <button type="button" class="btn btn-gold" onclick="addPerson()">+ إضافة فرد</button>
+    </div>
+    <div id="personnelList"></div>
+  </div>
+
+  <!-- المعاينة والتحميل -->
+  <div class="card">
+    <div class="card-title">
+      <span>🖼️ معاينة البوستر النهائي</span>
+      <span style="font-size:12px;color:#64748b;">مقاس شاشة الموبايل (9:16)</span>
+    </div>
+
+    <div class="preview-wrapper">
+      <canvas id="posterCanvas" width="1080" height="1920"></canvas>
+    </div>
+
+    <div style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+      <button type="button" class="btn btn-navy btn-full" onclick="downloadPoster()">
+        ⬇️ تحميل الاستيكر كصورة (PNG)
+      </button>
+      <button type="button" class="btn btn-gold btn-full" onclick="sharePoster()">
+        📤 مشاركة مباشرة (واتساب / تليجرام)
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" class="toast">تم الحفظ بنجاح</div>
+
+<script>
+const DEFAULT_STATE = {
+  company: "Global Security Logistics (GSL)",
+  title: "تمام الوردية المسائية",
+  date: "اليوم: الأحد الموافق ٢٠٢٦/١١/٢٢م",
+  footer: "تم استلام الوردية وتوزيع الأفراد على مواقعهم، والأمور تسير بشكل طبيعي ولا توجد أي ملاحظات.",
+  personnel: [
+    { name: "حمادة علي المهدي", role: "مشرف", duty: "المرور" },
+    { name: "ياسر كمال", role: "فرد أمن", duty: "بوابة العمال" },
+    { name: "محمد حمدي", role: "فرد أمن", duty: "الرايش" },
+    { name: "أحمد راشد", role: "فرد أمن", duty: "البوابة الرئيسية" },
+    { name: "نصر جمعة", role: "فرد أمن", duty: "البلازا" }
+  ]
+};
+
+let saved = JSON.parse(localStorage.getItem('gsl_shift_poster_v2'));
+let state = saved ? Object.assign({}, DEFAULT_STATE, saved) : JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+function saveState() {
+  localStorage.setItem('gsl_shift_poster_v2', JSON.stringify(state));
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function toArabicDigits(str) {
+  return String(str).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+}
+
+function setTodayDate() {
+  const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const now = new Date();
+  const dayName = days[now.getDay()];
+  const yyyy = toArabicDigits(now.getFullYear());
+  const mm = toArabicDigits(String(now.getMonth() + 1).padStart(2, '0'));
+  const dd = toArabicDigits(String(now.getDate()).padStart(2, '0'));
+  const formatted = `اليوم: ${dayName} الموافق ${yyyy}/${mm}/${dd}م`;
+  document.getElementById('shiftDate').value = formatted;
+  updateAndRender();
+  showToast('تم تحديث التاريخ لليوم');
+}
+
+function resetDefaultData() {
+  if (!confirm('هل تريد استعادة البيانات الافتراضية؟')) return;
+  state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+  document.getElementById('companyName').value = state.company;
+  document.getElementById('shiftTitle').value = state.title;
+  document.getElementById('shiftDate').value = state.date;
+  document.getElementById('shiftFooter').value = state.footer;
+  renderPersonnelInputs();
+  updateAndRender();
+  showToast('تمت استعادة البيانات الافتراضية');
+}
+
+function renderPersonnelInputs() {
+  const list = document.getElementById('personnelList');
+  document.getElementById('countBadge').textContent = state.personnel.length;
+  list.innerHTML = '';
+
+  state.personnel.forEach((person, index) => {
+    const item = document.createElement('div');
+    item.className = 'person-item';
+    item.innerHTML = `
+      <div class="person-header">
+        <span class="person-badge">فرد #${index + 1}</span>
+        <div class="person-actions">
+          <button type="button" class="btn btn-icon" onclick="movePerson(${index}, -1)" title="أعلى">▲</button>
+          <button type="button" class="btn btn-icon" onclick="movePerson(${index}, 1)" title="أسفل">▼</button>
+          <button type="button" class="btn btn-danger" onclick="removePerson(${index})">حذف</button>
+        </div>
+      </div>
+      <div>
+        <input type="text" placeholder="الاسم الكامل" value="${escapeHtml(person.name)}" oninput="updatePerson(${index}, 'name', this.value)">
+      </div>
+      <div class="grid-2">
+        <input type="text" placeholder="الوظيفة (مثال: فرد أمن)" value="${escapeHtml(person.role)}" oninput="updatePerson(${index}, 'role', this.value)">
+        <input type="text" placeholder="الخدمة / الموقع" value="${escapeHtml(person.duty)}" oninput="updatePerson(${index}, 'duty', this.value)">
+      </div>
+    `;
+    list.appendChild(item);
+  });
+}
+
+function escapeHtml(text) {
+  return String(text || '')
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function updatePerson(index, field, value) {
+  state.personnel[index][field] = value;
+  saveState();
+  drawPoster();
+}
+
+function addPerson() {
+  state.personnel.push({ name: "", role: "فرد أمن", duty: "" });
+  saveState();
+  renderPersonnelInputs();
+  drawPoster();
+}
+
+function removePerson(index) {
+  if (state.personnel.length <= 1) {
+    showToast('يجب وجود فرد واحد على الأقل');
+    return;
+  }
+  state.personnel.splice(index, 1);
+  saveState();
+  renderPersonnelInputs();
+  drawPoster();
+}
+
+function movePerson(index, dir) {
+  const newIndex = index + dir;
+  if (newIndex < 0 || newIndex >= state.personnel.length) return;
+  const temp = state.personnel[index];
+  state.personnel[index] = state.personnel[newIndex];
+  state.personnel[newIndex] = temp;
+  saveState();
+  renderPersonnelInputs();
+  drawPoster();
+}
+
+function updateAndRender() {
+  state.company = document.getElementById('companyName').value;
+  state.title = document.getElementById('shiftTitle').value;
+  state.date = document.getElementById('shiftDate').value;
+  state.footer = document.getElementById('shiftFooter').value;
+  saveState();
+  drawPoster();
+}
+
+function roundRect(ctx, x, y, width, height, radius) {
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+}
+
+function wrapTextLines(ctx, text, maxWidth) {
+  const words = String(text || '').split(/\s+/);
+  const lines = [];
+  let currentLine = '';
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    const testLine = currentLine ? currentLine + ' ' + word : word;
+    const metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth && currentLine) {
+      lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = testLine;
+    }
+  }
+  if (currentLine) lines.push(currentLine);
+  return lines.length ? lines : [''];
+}
+
+function drawCompassWatermark(ctx, cx, cy, radius) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+  ctx.lineWidth = 4;
+
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0, 0, radius * 0.72, 0, Math.PI * 2);
+  ctx.stroke();
+
+  for (let i = 0; i < 8; i++) {
+    ctx.rotate(Math.PI / 4);
+    ctx.beginPath();
+    ctx.moveTo(0, -radius * 1.15);
+    ctx.lineTo(24, -radius * 0.25);
+    ctx.lineTo(0, 0);
+    ctx.lineTo(-24, -radius * 0.25);
+    ctx.closePath();
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawShieldBadge(ctx, cx, cy) {
+  ctx.save();
+  ctx.translate(cx, cy);
+
+  // Outer shield
+  ctx.strokeStyle = '#c8a961';
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.moveTo(0, -48);
+  ctx.lineTo(44, -30);
+  ctx.lineTo(44, 7);
+  ctx.quadraticCurveTo(44, 40, 0, 56);
+  ctx.quadraticCurveTo(-44, 40, -44, 7);
+  ctx.lineTo(-44, -30);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Inner shield
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(0, -37);
+  ctx.lineTo(33, -22);
+  ctx.lineTo(33, 5);
+  ctx.quadraticCurveTo(33, 31, 0, 44);
+  ctx.quadraticCurveTo(-33, 31, -33, 5);
+  ctx.lineTo(-33, -22);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Center line
+  ctx.beginPath();
+  ctx.moveTo(0, -24);
+  ctx.lineTo(0, 31);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+function drawPoster() {
+  const canvas = document.getElementById('posterCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = 1080;
+  const H = 1920;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // White base background
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, W, H);
+
+  // Dark navy shield/banner body with curved bottom
+  ctx.fillStyle = '#0e1d34';
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(W, 0);
+  ctx.lineTo(W, 1520);
+  ctx.quadraticCurveTo(W, 1790, 540, 1790);
+  ctx.quadraticCurveTo(0, 1790, 0, 1520);
+  ctx.closePath();
+  ctx.fill();
+
+  // Subtle top vignette
+  const grad = ctx.createLinearGradient(0, 0, 0, 1790);
+  grad.addColorStop(0, 'rgba(255,255,255,0.03)');
+  grad.addColorStop(0.5, 'rgba(0,0,0,0)');
+  grad.addColorStop(1, 'rgba(0,0,0,0.25)');
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Watermark compass on top-left
+  drawCompassWatermark(ctx, 110, 430, 210);
+
+  // Top Company Name Banner Badge
+  const companyText = (state.company || 'Global Security Logistics (GSL)').trim();
+  if (companyText) {
+    ctx.save();
+    ctx.font = '800 32px Cairo, sans-serif';
+    const textMetrics = ctx.measureText(companyText);
+    const badgeW = Math.min(920, Math.max(540, textMetrics.width + 90));
+    const badgeH = 66;
+    const badgeX = (W - badgeW) / 2;
+    const badgeY = 62;
+
+    ctx.fillStyle = 'rgba(200, 169, 97, 0.14)';
+    roundRect(ctx, badgeX, badgeY, badgeW, badgeH, 33);
+    ctx.fill();
+
+    ctx.strokeStyle = 'rgba(200, 169, 97, 0.65)';
+    ctx.lineWidth = 2.5;
+    roundRect(ctx, badgeX, badgeY, badgeW, badgeH, 33);
+    ctx.stroke();
+
+    ctx.direction = 'ltr';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#f3d999';
+    ctx.fillText(companyText, W / 2, badgeY + badgeH / 2 + 2);
+    ctx.restore();
+  }
+
+  // Header Title
+  ctx.direction = 'rtl';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#c8a961';
+  ctx.font = '900 76px Cairo, sans-serif';
+  ctx.fillText(state.title || 'تمام الوردية المسائية', W / 2, 215);
+
+  // Date Subtitle
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 43px Cairo, sans-serif';
+  ctx.fillText(state.date || '', W / 2, 310);
+
+  // Shield Icon
+  drawShieldBadge(ctx, W / 2, 415);
+
+  // Table Container
+  const tableX = 90;
+  const tableY = 505;
+  const tableW = 900;
+  const rowsCount = state.personnel.length;
+  const headerH = 105;
+  const availableTableH = 955;
+  const rowH = Math.min(165, Math.max(115, Math.floor((availableTableH - headerH) / Math.max(1, rowsCount))));
+  const tableH = headerH + (rowH * rowsCount);
+
+  // White rounded card for table
+  ctx.save();
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.35)';
+  ctx.shadowBlur = 28;
+  ctx.shadowOffsetY = 12;
+  ctx.fillStyle = '#ffffff';
+  roundRect(ctx, tableX, tableY, tableW, tableH, 26);
+  ctx.fill();
+  ctx.restore();
+
+  // Inner subtle border
+  ctx.strokeStyle = '#d4c59e';
+  ctx.lineWidth = 3;
+  roundRect(ctx, tableX + 12, tableY + 12, tableW - 24, tableH - 24, 18);
+  ctx.stroke();
+
+  const col1Center = 825; // الاسم
+  const col2Center = 525; // الوظيفة
+  const col3Center = 240; // الخدمة
+
+  // Vertical dividers
+  ctx.strokeStyle = '#d4c59e';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(660, tableY + 12);
+  ctx.lineTo(660, tableY + tableH - 12);
+  ctx.moveTo(390, tableY + 12);
+  ctx.lineTo(390, tableY + tableH - 12);
+  ctx.stroke();
+
+  // Header Row Text
+  ctx.fillStyle = '#0f172a';
+  ctx.font = '800 42px Cairo, sans-serif';
+  const headerCenterY = tableY + headerH / 2 + 4;
+  ctx.fillText('الاسم', col1Center, headerCenterY);
+  ctx.fillText('الوظيفة', col2Center, headerCenterY);
+  ctx.fillText('الخدمة', col3Center, headerCenterY);
+
+  // Header Bottom Line
+  ctx.beginPath();
+  ctx.moveTo(tableX + 12, tableY + headerH);
+  ctx.lineTo(tableX + tableW - 12, tableY + headerH);
+  ctx.stroke();
+
+  // Data Rows
+  const fontSize = rowsCount > 6 ? 32 : 36;
+  ctx.font = `800 ${fontSize}px Cairo, sans-serif`;
+
+  state.personnel.forEach((p, idx) => {
+    const rTop = tableY + headerH + (idx * rowH);
+    const rCenterY = rTop + rowH / 2 + 2;
+
+    if (idx > 0) {
+      ctx.beginPath();
+      ctx.moveTo(tableX + 12, rTop);
+      ctx.lineTo(tableX + tableW - 12, rTop);
+      ctx.stroke();
+    }
+
+    ctx.fillStyle = '#0f172a';
+    drawCellText(ctx, p.name || '-', col1Center, rCenterY, 290, fontSize);
+    drawCellText(ctx, p.role || '-', col2Center, rCenterY, 240, fontSize);
+    drawCellText(ctx, p.duty || '-', col3Center, rCenterY, 270, fontSize);
+  });
+
+  // Footer Note
+  const footerStartY = Math.max(tableY + tableH + 85, 1560);
+  ctx.fillStyle = '#e6c87a';
+  ctx.font = '800 37px Cairo, sans-serif';
+  const footerLines = wrapTextLines(ctx, state.footer, 880);
+  const lineHeight = 54;
+  footerLines.forEach((line, i) => {
+    ctx.fillText(line, W / 2, footerStartY + (i * lineHeight));
+  });
+}
+
+function drawCellText(ctx, text, cx, cy, maxWidth, fontSize) {
+  const lines = wrapTextLines(ctx, text, maxWidth);
+  if (lines.length === 1) {
+    ctx.fillText(lines[0], cx, cy);
+  } else {
+    const lh = fontSize + 10;
+    const startY = cy - ((lines.length - 1) * lh) / 2;
+    lines.forEach((line, idx) => {
+      ctx.fillText(line, cx, startY + idx * lh);
+    });
+  }
+}
+
+function downloadPoster() {
+  const canvas = document.getElementById('posterCanvas');
+  const link = document.createElement('a');
+  link.download = `GSL-تمام-الوردية-${Date.now()}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+  showToast('جاري تحميل صورة البوستر...');
+}
+
+async function sharePoster() {
+  const canvas = document.getElementById('posterCanvas');
+  canvas.toBlob(async (blob) => {
+    const file = new File([blob], 'GSL-shift-poster.png', { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({
+          files: [file],
+          title: `${state.company} - ${state.title}`,
+          text: `${state.company}
+${state.title} - ${state.date}`
+        });
+      } catch (err) {
+        if (err.name !== 'AbortError') downloadPoster();
+      }
+    } else {
+      downloadPoster();
+    }
+  }, 'image/png');
+}
+
+// Initialize inputs from state
+document.getElementById('companyName').value = state.company;
+document.getElementById('shiftTitle').value = state.title;
+document.getElementById('shiftDate').value = state.date;
+document.getElementById('shiftFooter').value = state.footer;
+renderPersonnelInputs();
+
+document.fonts.ready.then(() => {
+  drawPoster();
+});
+drawPoster();
+</script>
+</body>
+</html>
